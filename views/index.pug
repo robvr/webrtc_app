@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    | Wrap old and new getUserMedia. Camera and Microphone
+    br
+    button(type='button', onclick='startVideo();') Start
+    button(type='button', onclick='stopVideo();') Stop
+    br
+    video#local_video(autoplay='', style='width: 320px; height: 240px; border: 1px solid black;')
+    script(src='/javascripts/simpleWebRtc.js')
