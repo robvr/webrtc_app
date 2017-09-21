@@ -4,6 +4,9 @@ var indexCtrl = {
     },
     signaling: function(req, res) {
         res.render('signaling', { title: 'Very simple WebRTC application with a Node.js signaling server' });
+    },
+    dashboard: function(req, res) {
+        res.render('dashboard', { title: 'Very simple WebRTC application with a Node.js signaling server' })
     }
 }
 

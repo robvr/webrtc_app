@@ -4,7 +4,7 @@ var logger = require('morgan');
 
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var signalingServer = require('./app_server/utilities/signalingServer')(server);
 const port = process.env.PORT || 3000;
 
 var index = require('./app_server/routes/index');
@@ -20,38 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
-
 server.listen(port, function() {
     console.log('Server started on port: ' + port)
 });
-
-let clients = [];
-io.sockets.on('connection', function(socket) {
-    socket.on('joined', function(data) {
-        data.socketID = socket.id;
-        clients.push(data);
-
-        io.emit('update_clients', clients);
-    });
-
-    socket.on('send_message', function(data) {
-        let msg = data.message,
-            sendTo = data.to,
-            from = data.from;
-
-        socket.broadcast.to(findSocketByClientID(sendTo)).emit('message', JSON.stringify({
-            msg: msg,
-            from: from
-        }));
-    });
-});
-
-function findSocketByClientID(clientID) {
-    let socketID;
-    clients.forEach(function(client) {
-        if(client.userID == clientID) {
-            socketID = client.socketID;
-        }
-    });
-    return socketID;
-}

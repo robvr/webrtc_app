@@ -1,10 +1,74 @@
-extends layout
+html(doctype)
+head
+    meta(name='viewport', content='width=device-width')
+    title Bootstrap 3 Collapsible Sidebar
+    // Bootstrap CSS CDN
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    // Font-Awesome CSS CDN
+    link(href='https://use.fontawesome.com/45e03a14ce.css', media='all', rel='stylesheet')
+    // SweetAlert2 CSS CDN
+    link(rel='stylesheet', href='/stylesheets/sweetalert2.min.css')
+    // Roboto Font CDN
+    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
+    // Our Custom CSS
+    link(rel='stylesheet', href='/stylesheets/custom.css')
+body
+    #overlay
+    .wrapper
+        // Sidebar
+        nav#sidebar
+            .sidebar-hack
+                #header-profile
+                    a(href='#')
+                        span.avatar(style="background-image: url('/images/male_avatar.svg')")
+                        .name-wrapper
+                            h5 Helis Member
+            #sidebar-main
+                // Sidebar Header
+                .sidebar-header
+                    .form-group
+                        label(for='contacts') Contacts
+                        input#contacts.form-control(type='text', placeholder='Search Helis Members')
+                // Sidebar Links
+                .contact-list-wrapper
+                    .contact-list
+                        .contact-list-header My Contacts
+                        #contact_list.conctacts
 
-block content
-    | Wrap old and new getUserMedia. Camera and Microphone
-    br
-    button(type='button', onclick='startVideo();') Start
-    button(type='button', onclick='stopVideo();') Stop
-    br
-    video#local_video(autoplay='', style='width: 320px; height: 240px; border: 1px solid black;')
-    script(src='/javascripts/simpleWebRtc.js')
+        // Page Content
+        #content
+            nav.navbar.navbar-default
+                .container-fluid
+                    .navbar-header
+                        //button#sidebarCollapse.btn.btn-info.navbar-btn(type='button')
+                            i.glyphicon.glyphicon-align-left
+                            span Toggle Sidebar
+                    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a(href='#') Logout
+                            li
+                                button#local_video_btn(type='button') Start Video
+            #main-area
+    #video-container
+        video#local_video(autoplay='')
+        video#remote_video(autoplay='')
+        section#call_options
+            .chat-app_control_wrap
+                .control_chat_block
+                    .control_chat_block_inner
+                        button#audio_mute.voicebtn(type='button', name='button')
+                        div
+                            button#leave_call.callbtn.chat-app__exit()
+                        button#video_mute.videobtn(type='button', name='button')
+
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/adapter.js')
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/sweetalert2.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js')
+    script(src='https://wzrd.in/standalone/uuid%2Fv4@latest')
+    // Bootstrap Js CDN
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    // Custom script
+    script(src='/javascripts/custom.js')
