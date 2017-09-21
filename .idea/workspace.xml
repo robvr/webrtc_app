@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff446b6-4c34-48f7-87cd-dc0069dd23ea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/vendors/bootstrap/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/dashboard.pug" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/controllers/index.js" afterPath="$PROJECT_DIR$/app_server/controllers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/routes/index.js" afterPath="$PROJECT_DIR$/app_server/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/signaling.js" afterPath="$PROJECT_DIR$/public/javascripts/signaling.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.pug" afterPath="$PROJECT_DIR$/views/index.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/signaling.pug" afterPath="$PROJECT_DIR$/views/signaling.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/custom.js" afterPath="$PROJECT_DIR$/public/javascripts/custom.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,8 +50,8 @@
       <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="348" column="26" lean-forward="false" selection-start-line="348" selection-start-column="26" selection-end-line="348" selection-end-column="26" />
+            <state relative-caret-position="258">
+              <caret line="390" column="43" lean-forward="false" selection-start-line="390" selection-start-column="43" selection-end-line="390" selection-end-column="43" />
               <folding>
                 <element signature="n#!!block;n#startVideo#0" expanded="false" />
                 <element signature="n#!!block;n#stopVideo#0" expanded="false" />
@@ -74,8 +65,7 @@
                 <element signature="n#!!block;n#sendMessage#0" expanded="false" />
                 <element signature="n#!!block;n#makeOffer#0" expanded="false" />
                 <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-                <element signature="n#!!block;n#addIceCandidate#0" expanded="false" />
-                <marker date="1506001642359" expanded="true" signature="4554:4612" ph="..." />
+                <marker date="1506002256775" expanded="true" signature="4667:4725" ph="..." />
               </folding>
             </state>
           </provider>
@@ -456,16 +446,16 @@
       <updated>1505813124246</updated>
       <workItem from="1505813125620" duration="14625000" />
       <workItem from="1505891754340" duration="12174000" />
-      <workItem from="1505979544676" duration="17598000" />
+      <workItem from="1505979544676" duration="18079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44397000" />
+    <option name="totallyTimeSpent" value="44878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1616" height="1176" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24968314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -474,7 +464,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981783" sideWeight="0.49746513" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981783" sideWeight="0.49746513" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -870,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="348" column="26" lean-forward="false" selection-start-line="348" selection-start-column="26" selection-end-line="348" selection-end-column="26" />
+        <state relative-caret-position="258">
+          <caret line="390" column="43" lean-forward="false" selection-start-line="390" selection-start-column="43" selection-end-line="390" selection-end-column="43" />
           <folding>
             <element signature="n#!!block;n#startVideo#0" expanded="false" />
             <element signature="n#!!block;n#stopVideo#0" expanded="false" />
@@ -885,8 +875,7 @@
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
             <element signature="n#!!block;n#makeOffer#0" expanded="false" />
             <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#addIceCandidate#0" expanded="false" />
-            <marker date="1506001642359" expanded="true" signature="4554:4612" ph="..." />
+            <marker date="1506002256775" expanded="true" signature="4667:4725" ph="..." />
           </folding>
         </state>
       </provider>

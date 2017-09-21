@@ -84,7 +84,9 @@ $(document).ready(function () {
             } else if(content.type === 'candidate') {
                 // --- got ICE candidate ---
                 console.log('Received ICE candidate ...');
-                console.log(data);
+                console.log(content);
+                let candidate = new RTCIceCandidate(content.ice);
+                addIceCandidate(candidate);
             } else if(content.type === 'close_call') {
                 hangUp();
             }
@@ -386,9 +388,9 @@ function setAnswer(sessionDescription) {
 // --- tricke ICE ---
 function addIceCandidate(candidate) {
     if (peerConnection) {
+        console.log('added ice candidate');
         peerConnection.addIceCandidate(candidate);
-    }
-    else {
+    } else {
         console.error('PeerConnection not exist!');
         return;
     }
