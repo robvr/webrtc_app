@@ -8,7 +8,8 @@ module.exports = function(server) {
             data.socketID = socket.id;
             clients.push(data);
 
-            io.emit('update_clients', clients);
+            //io.emit('update_clients', clients);
+            io.emit('update_clients_status', data.userID);
         });
 
         // ---- send MSG to specific socket ----
@@ -25,8 +26,11 @@ module.exports = function(server) {
 
         // ---- Remove clients from Array when disconnected ----
         socket.on('disconnect', function() {
-            clients.splice(findSocketIndex(socket.id), 1);
-            io.emit('update_clients', clients);
+            var index = findSocketIndex(socket.id);
+            if(index) {
+                io.emit('update_clients_status', clients[index].userID);
+                clients.splice(index, 1);
+            }
         })
     });
 

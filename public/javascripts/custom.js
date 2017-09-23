@@ -1,10 +1,9 @@
 // ---- User parameters ----
-let userID, username, isInitiator = false;
-let localVideoGlobal = document.getElementById('local_video'),
-    remoteVideoGlobal = document.getElementById('remote_video');
+let userID, username, isInitiator = false, user;
 let guiComponenets = {};
 let socket;
-let localStream = null;
+let localStream = null,
+    remoteStream = null;
 let peerConnection = null;
 let pc_config = {"iceServers":[
     {
@@ -31,100 +30,101 @@ $(document).ready(function () {
         videoCallBtn: '.contact-list_contact_button-video',
     };
 
-    swal({
-        title: 'Enter your nickname:',
-        input: 'text',
-        inputPlaceholder: 'Nickname',
-        allowOutsideClick: false,
-        showCancelButton: false,
-        inputValidator: function (value) {
-            return new Promise(function (resolve, reject) {
-                if (value) {
-                    resolve()
-                } else {
-                    reject('You must enter the room name!')
-                }
-            })
-        }
-    }).then(function(un) {
-        username = un;
-        userID = uuidv4();
-        window.userID = userID;
+    //username = un;
+    //userID = uuidv4();
+    user = JSON.parse(decodeURIComponent(readCookie('userDetails')));
+    window.user = user;
 
-        // ---- Connect to signaling server ----
-        socket = io.connect(window.location.host);
+    // ---- Connect to signaling server ----
+    socket = io.connect(window.location.host);
 
-        // ---- Socket Events ----
-        socket.emit('joined', {
-            'username': username,
-            'userID': userID
-        });
+    // ---- Socket Events ----
+    socket.emit('joined', {
+        'username': user.email,
+        'userID': user.userID
+    });
 
-        socket.on('update_clients', function(data) {
-            updateClientList(guiComponenets.contactList, data);
-        });
+    socket.on('update_clients', function(data) {
+        //updateClientList(guiComponenets.contactList, data);
+    });
 
-        socket.on('message', function(data) {
-            console.log(data);
-            let message  = JSON.parse(data);
-            let content = JSON.parse(message.msg);
+    socket.on('update_clients_status', function(data) {
+        console.log('Must udpate status of: ' + data);
+        updateStatusOfClient(guiComponenets.contactList, data);
+    })
 
-            if(content.type === 'offer') {
-                // ---- got offer ----
-                console.log('Received offer ...');
+    socket.on('message', function(data) {
+        console.log(data);
+        let message  = JSON.parse(data);
+        let content = JSON.parse(message.msg);
+
+        if(content.type === 'offer') {
+            // ---- got offer ----
+            console.log('Received offer ...');
+            acceptCall(message.from);
+            guiComponenets.videoCallContainer.on('click', '#answer_call', function() {
                 let offer = new RTCSessionDescription(content);
-                startVideo(guiComponenets.localVideo).then(function () {
-                    setOffer(offer, message.from);
-                });
-            } else if(content.type === 'answer') {
-                // ---- got answer ----
-                console.log('Received answer ...');
-                let answer = new RTCSessionDescription(content);
-                setAnswer(answer);
-            } else if(content.type === 'candidate') {
-                // --- got ICE candidate ---
-                console.log('Received ICE candidate ...');
-                console.log(content);
-                let candidate = new RTCIceCandidate(content.ice);
+                 startVideo(guiComponenets.localVideo).then(function () {
+                     setOffer(offer, message.from);
+                 });
+            });
+        } else if(content.type === 'answer') {
+            // ---- got answer ----
+            console.log('Received answer ...');
+            let answer = new RTCSessionDescription(content);
+            setAnswer(answer);
+        } else if(content.type === 'candidate') {
+            // --- got ICE candidate ---
+            console.log('Received ICE candidate ...');
+            let candidate = new RTCIceCandidate(content.ice);
+            if(peerConnection)
                 addIceCandidate(candidate);
-            } else if(content.type === 'close_call') {
-                hangUp();
-            }
-        });
+        } else if(content.type === 'close_call') {
+            hangUp();
+        }
+    });
 
-        // ---- GUI Event Handlers
-        guiComponenets.localVideoBtn.on('click', function() {
-            startVideo(guiComponenets.localVideo);
-            guiComponenets.videoCallContainer.show();
-        })
+    // ---- GUI Event Handlers
+    guiComponenets.leaveCall.on('click', function () {
+        stopVideo();
+        guiComponenets.videoCallContainer.hide();
+    });
 
-        guiComponenets.leaveCall.on('click', function () {
-            stopVideo(guiComponenets.localVideo);
-            guiComponenets.videoCallContainer.hide();
-        });
+    guiComponenets.contactList.on('click', guiComponenets.chatBtn, function() {
+        console.log('chat with peer');
+    });
 
-        guiComponenets.contactList.on('click', guiComponenets.chatBtn, function() {
-            console.log('chat with peer');
-        });
+    guiComponenets.contactList.on('click', guiComponenets.callBtn, function() {
+        console.log('call with peer');
+    });
 
-        guiComponenets.contactList.on('click', guiComponenets.callBtn, function() {
-            console.log('call with peer');
-        });
-
-        guiComponenets.contactList.on('click', guiComponenets.videoCallBtn, function() {
-            callPeer($(this).data('uid'), guiComponenets.localVideo);
-        });
+    guiComponenets.contactList.on('click', guiComponenets.videoCallBtn, function() {
+        callPeer($(this).data('uid'), $(this).data('username'), guiComponenets.localVideo);
     });
 });
+
+// ---- Cookie Helper ----
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
 
 // ---- GUI helpers ----
 function updateClientList(element, contacts) {
     let tmpl = '';
     contacts.forEach(function(contact) {
-        if(contact.userID != userID)
+        if(contact.userID != user.userID)
             tmpl += '<div class="contact-list-contact">' +
                         '<a class="contact-list_contact_link">' +
-                            '<span class="contact-list_contact_avatar" style="background-image: url(&quot;/images/male_avatar.svg&quot;)"></span>' +
+                            '<span class="contact-list_contact_avatar" style="background-image: url(&quot;/images/male_avatar.svg&quot;)">' +
+                                '<div id="status_' + contact.userID + '" class="bubble"><span class="bubble-outer-dot"><span class="bubble-inner-dot"></span></span></div>' +
+                            '</span>' +
                             '<span class="contact-list_contact_name">' + contact.username + '</span>' +
                         '</a>' +
                         '<a class="contact-icon contact-list_contact_button-chat" data-uid="' + contact.userID + '"></a>' +
@@ -134,6 +134,12 @@ function updateClientList(element, contacts) {
     });
     element.html(tmpl);
 
+}
+
+function updateStatusOfClient(element, clientID) {
+    // TODO: try to select elements from element
+    var item = $('#status_' + clientID);
+    item.hasClass('online') ? item.removeClass('online').addClass('offline') : item.removeClass('offline').addClass('online');
 }
 
 // ---- media handling ----
@@ -153,12 +159,20 @@ function startVideo(element) {
             });
     })
 }
-function stopVideo(element) {
-    pauseVideo(element);
-    stopLocalStream(localStream);
+function stopVideo() {
+    pauseVideo(guiComponenets.localVideo);
+    pauseVideo(guiComponenets.remoteVideo);
+    stopLocalStream();
 }
-function stopLocalStream(stream) {
-    let tracks = stream.getTracks();
+
+function stopLocalStream() {
+    // TODO
+    console.log('closing peerConnection');
+    peerConnection.close();
+    peerConnection = null;
+    console.log(peerConnection);
+
+    /*let tracks = localStream.getTracks();
     if (!tracks) {
         console.warn('NO tracks');
         return;
@@ -167,7 +181,12 @@ function stopLocalStream(stream) {
     for (let track of tracks) {
         track.stop();
     }
+
+    let remoteTracks = remoteStream.getTracks();
+    for(let track of remoteTracks)
+        track.stop();*/
 }
+
 function getDeviceStream(option) {
     if ('getUserMedia' in navigator.mediaDevices) {
         console.log('navigator.mediaDevices.getUserMedia');
@@ -196,7 +215,7 @@ function playVideo(element, stream) {
         element.src = window.URL.createObjectURL(stream);
     }
     element.play();
-    element.volume = 0;
+    //element.volume = 0;
 }
 function pauseVideo(element) {
     element.pause();
@@ -240,7 +259,7 @@ function sendSdp(sessionDescription, uid) {
     let message = JSON.stringify(sessionDescription);
     sendMessage({
         message: message,
-        from: userID,
+        from: user,
         to: uid
     });
 }
@@ -253,7 +272,7 @@ function sendIceCandidate(candidate, uid) {
     sendMessage(message);
     sendMessage({
         message: message,
-        from: userID,
+        from: user.userID,
         to: uid
     })
 }
@@ -271,7 +290,7 @@ function prepareNewConnection(uid) {
         peer.ontrack = function(event) {
             console.log('-- peer.ontrack()');
             let stream = event.streams[0];
-            playVideo(remoteVideoGlobal, stream);
+            playVideo(guiComponenets.remoteVideo, stream);
             if (event.streams.length > 1) {
                 console.warn('got multi-stream, but play only 1 stream');
             }
@@ -279,8 +298,11 @@ function prepareNewConnection(uid) {
     } else {
         peer.onaddstream = function(event) {
             console.log('-- peer.onaddstream()');
-            let stream = event.stream;
-            playVideo(remoteVideoGlobal, stream);
+            remoteStream = event.stream;
+            playVideo(guiComponenets.remoteVideo, remoteStream);
+
+            // ---- Minor GUI ----
+            guiComponenets.videoCallContainer.find('#call_from').html('');
         };
     }
 
@@ -291,6 +313,7 @@ function prepareNewConnection(uid) {
             sendIceCandidate(evt.candidate, uid);
         } else {
             console.log('empty ice event');
+            sendSdp(peer.localDescription);
         }
     };
 
@@ -332,24 +355,25 @@ function makeOffer(uid) {
     });
 }
 
-function setOffer(sessionDescription, uid) {
+function setOffer(sessionDescription, fromUser) {
     if (peerConnection) {
         console.error('peerConnection alreay exist!');
     }
-    peerConnection = prepareNewConnection(uid);
+    peerConnection = prepareNewConnection(fromUser.userID);
     peerConnection.setRemoteDescription(sessionDescription)
         .then(function() {
             console.log('setRemoteDescription(offer) succsess in promise');
-            makeAnswer(uid);
+            makeAnswer(fromUser);
         })
         .catch(function(err) {
             console.error('setRemoteDescription(offer) ERROR: ', err);
         });
 }
 
-function makeAnswer(uid) {
+function makeAnswer(fromUser) {
     // ---- Minor GUI ----
-    guiComponenets.videoCallContainer.show();
+    guiComponenets.videoCallContainer.find('#answer_call').hide();
+    guiComponenets.videoCallContainer.find('#leave_call').show();
 
     console.log('sending Answer. Creating remote session description...' );
     if (!peerConnection) {
@@ -364,7 +388,7 @@ function makeAnswer(uid) {
         })
         .then(function() {
             console.log('setLocalDescription() succsess in promise');
-            sendSdp(peerConnection.localDescription, uid);
+            sendSdp(peerConnection.localDescription, fromUser.userID);
         })
         .catch(function(err) {
             console.error(err);
@@ -397,9 +421,12 @@ function addIceCandidate(candidate) {
 }
 
 // ---- start PeerConnection ----
-function callPeer(uid, localVideoElement, globalVideoElement) {
+function callPeer(uid, username, localVideoElement) {
     if (!peerConnection) {
         startVideo(localVideoElement).then(function() {
+            guiComponenets.videoCallContainer.find('#answer_call').hide();
+            guiComponenets.videoCallContainer.find('#leave_call').show();
+            guiComponenets.videoCallContainer.find('#call_from').html('Call To: ' + username);
             guiComponenets.videoCallContainer.show();
             isInitiator = true;
 
@@ -411,3 +438,10 @@ function callPeer(uid, localVideoElement, globalVideoElement) {
     }
 }
 
+// ---- Accept Call ----
+function acceptCall(user) {
+    guiComponenets.videoCallContainer.find('#answer_call').show();
+    guiComponenets.videoCallContainer.find('#leave_call').hide();
+    guiComponenets.videoCallContainer.find('#call_from').html('Call From: ' + user.email);
+    guiComponenets.videoCallContainer.show();
+}

@@ -1,18 +1,6 @@
-html(doctype)
-head
-    meta(name='viewport', content='width=device-width')
-    title Bootstrap 3 Collapsible Sidebar
-    // Bootstrap CSS CDN
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    // Font-Awesome CSS CDN
-    link(href='https://use.fontawesome.com/45e03a14ce.css', media='all', rel='stylesheet')
-    // SweetAlert2 CSS CDN
-    link(rel='stylesheet', href='/stylesheets/sweetalert2.min.css')
-    // Roboto Font CDN
-    link(href='https://fonts.googleapis.com/css?family=Roboto', rel='stylesheet')
-    // Our Custom CSS
-    link(rel='stylesheet', href='/stylesheets/custom.css')
-body
+extends main_layout
+
+block content
     #overlay
     .wrapper
         // Sidebar
@@ -22,7 +10,7 @@ body
                     a(href='#')
                         span.avatar(style="background-image: url('/images/male_avatar.svg')")
                         .name-wrapper
-                            h5 Helis Member
+                            h5=user.local.email
             #sidebar-main
                 // Sidebar Header
                 .sidebar-header
@@ -34,6 +22,18 @@ body
                     .contact-list
                         .contact-list-header My Contacts
                         #contact_list.conctacts
+                            each u in users
+                                if (JSON.stringify(u._id) != JSON.stringify(user._id))
+                                    .contact-list-contact
+                                        a.contact-list_contact_link
+                                            span.contact-list_contact_avatar(style='background-image: url("/images/male_avatar.svg")')
+                                                .bubble(id="status_" + u._id, class= u.status === 'online' ? 'online' : 'offline')
+                                                    span.bubble-outer-dot
+                                                        span.bubble-inner-dot
+                                            span.contact-list_contact_name #{u.local.email}
+                                        a.contact-icon.contact-list_contact_button-chat(data-uid=u._id, data-username=u.local.email)
+                                        a.contact-icon.contact-list_contact_button-audio(data-uid=u.id, data-username=u.local.email)
+                                        a.contact-icon.contact-list_contact_button-video(data-uid=u.id, data-username=u.local.email)
 
         // Page Content
         #content
@@ -46,11 +46,10 @@ body
                     #bs-example-navbar-collapse-1.collapse.navbar-collapse
                         ul.nav.navbar-nav.navbar-right
                             li
-                                a(href='#') Logout
-                            li
-                                button#local_video_btn(type='button') Start Video
+                                a(href='/logout') Logout
             #main-area
     #video-container
+        h1#call_from Robert
         video#local_video(autoplay='')
         video#remote_video(autoplay='')
         section#call_options
@@ -59,16 +58,11 @@ body
                     .control_chat_block_inner
                         button#audio_mute.voicebtn(type='button', name='button')
                         div
-                            button#leave_call.callbtn.chat-app__exit()
+                            button#leave_call.callbtn.chat-app__exit.leave
+                            button#answer_call.callbtn.chat-app__exit.answer
                         button#video_mute.videobtn(type='button', name='button')
 
-    script(src='/socket.io/socket.io.js')
-    script(src='/javascripts/adapter.js')
-    script(src='/javascripts/jquery.min.js')
-    script(src='/javascripts/sweetalert2.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js')
-    script(src='https://wzrd.in/standalone/uuid%2Fv4@latest')
-    // Bootstrap Js CDN
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+block bottom
     // Custom script
     script(src='/javascripts/custom.js')
