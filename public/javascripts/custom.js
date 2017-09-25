@@ -44,12 +44,8 @@ $(document).ready(function () {
         'userID': user.userID
     });
 
-    socket.on('update_clients', function(data) {
-        //updateClientList(guiComponenets.contactList, data);
-    });
-
     socket.on('update_clients_status', function(data) {
-        console.log('Must udpate status of: ' + data);
+        console.log('Must udpate status of: ' + data.userID);
         updateStatusOfClient(guiComponenets.contactList, data);
     })
 
@@ -116,30 +112,11 @@ function readCookie(name) {
 }
 
 // ---- GUI helpers ----
-function updateClientList(element, contacts) {
-    let tmpl = '';
-    contacts.forEach(function(contact) {
-        if(contact.userID != user.userID)
-            tmpl += '<div class="contact-list-contact">' +
-                        '<a class="contact-list_contact_link">' +
-                            '<span class="contact-list_contact_avatar" style="background-image: url(&quot;/images/male_avatar.svg&quot;)">' +
-                                '<div id="status_' + contact.userID + '" class="bubble"><span class="bubble-outer-dot"><span class="bubble-inner-dot"></span></span></div>' +
-                            '</span>' +
-                            '<span class="contact-list_contact_name">' + contact.username + '</span>' +
-                        '</a>' +
-                        '<a class="contact-icon contact-list_contact_button-chat" data-uid="' + contact.userID + '"></a>' +
-                        '<a class="contact-icon contact-list_contact_button-audio" data-uid="' + contact.userID + '"></a>' +
-                        '<a class="contact-icon contact-list_contact_button-video" data-uid="' + contact.userID + '"></a>' +
-                    '</div>'
-    });
-    element.html(tmpl);
-
-}
-
-function updateStatusOfClient(element, clientID) {
+function updateStatusOfClient(element, client) {
     // TODO: try to select elements from element
-    var item = $('#status_' + clientID);
-    item.hasClass('online') ? item.removeClass('online').addClass('offline') : item.removeClass('offline').addClass('online');
+    var item = $('#status_' + client.userID);
+    //item.hasClass('online') ? item.removeClass('online').addClass('offline') : item.removeClass('offline').addClass('online');
+    item.removeClass('online offline').addClass(client.status);
 }
 
 // ---- media handling ----
@@ -164,7 +141,6 @@ function stopVideo() {
     pauseVideo(guiComponenets.remoteVideo);
     stopLocalStream();
 }
-
 function stopLocalStream() {
     // TODO
     console.log('closing peerConnection');
@@ -172,7 +148,7 @@ function stopLocalStream() {
     peerConnection = null;
     console.log(peerConnection);
 
-    /*let tracks = localStream.getTracks();
+    let tracks = localStream.getTracks();
     if (!tracks) {
         console.warn('NO tracks');
         return;
@@ -184,7 +160,7 @@ function stopLocalStream() {
 
     let remoteTracks = remoteStream.getTracks();
     for(let track of remoteTracks)
-        track.stop();*/
+        track.stop();
 }
 
 function getDeviceStream(option) {
@@ -269,7 +245,6 @@ function sendIceCandidate(candidate, uid) {
     let obj = { type: 'candidate', ice: candidate };
     let message = JSON.stringify(obj);
     console.log('sending candidate=' + message);
-    sendMessage(message);
     sendMessage({
         message: message,
         from: user.userID,
@@ -362,11 +337,9 @@ function setOffer(sessionDescription, fromUser) {
     peerConnection = prepareNewConnection(fromUser.userID);
     peerConnection.setRemoteDescription(sessionDescription)
         .then(function() {
-            console.log('setRemoteDescription(offer) succsess in promise');
             makeAnswer(fromUser);
         })
         .catch(function(err) {
-            console.error('setRemoteDescription(offer) ERROR: ', err);
         });
 }
 
@@ -403,9 +376,7 @@ function setAnswer(sessionDescription) {
 
     peerConnection.setRemoteDescription(sessionDescription)
         .then(function() {
-            console.log('setRemoteDescription(answer) succsess in promise');
         }).catch(function(err) {
-        console.error('setRemoteDescription(answer) ERROR: ', err);
     });
 }
 

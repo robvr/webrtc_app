@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ff446b6-4c34-48f7-87cd-dc0069dd23ea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/dashboard.pug" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/controllers/index.js" afterPath="$PROJECT_DIR$/app_server/controllers/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/routes/index.js" afterPath="$PROJECT_DIR$/app_server/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" afterPath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.js" afterPath="$PROJECT_DIR$/config/database.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/passport.js" afterPath="$PROJECT_DIR$/config/passport.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/custom.js" afterPath="$PROJECT_DIR$/public/javascripts/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/custom.css" afterPath="$PROJECT_DIR$/public/stylesheets/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.pug" afterPath="$PROJECT_DIR$/views/index.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -35,8 +32,54 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="59">
               <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customOther.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="287" column="28" lean-forward="false" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
+              <folding>
+                <element signature="e#1633#1702#0" expanded="false" />
+                <element signature="e#1760#1893#0" expanded="false" />
+                <element signature="e#3211#3257#0" expanded="false" />
+                <element signature="e#3339#3385#0" expanded="false" />
+                <element signature="n#!!block;n#readCookie#0" expanded="false" />
+                <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
+                <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
+                <element signature="n#!!block;n#prepareCall#0" expanded="false" />
+                <element signature="n#!!block;n#initiateCall#0" expanded="false" />
+                <element signature="n#!!block;n#answerCall#0" expanded="false" />
+                <element signature="n#!!block;n#createAndSendOffer#0" expanded="false" />
+                <element signature="n#!!block;n#setAnswer#0" expanded="false" />
+                <element signature="n#!!block;n#onIceCandidateHandler#0" expanded="false" />
+                <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
+                <element signature="n#!!block;n#addICECandidate#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_layout.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/main_layout.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/includes/scripts.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -45,11 +88,11 @@
       <file leaf-file-name="signalingServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_server/utilities/signalingServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+            <state relative-caret-position="340">
+              <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding>
-                <element signature="e#1311#1464#0" expanded="false" />
-                <element signature="e#1563#1774#0" expanded="false" />
+                <element signature="e#1458#1611#0" expanded="false" />
+                <element signature="e#1710#1921#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,44 +101,55 @@
       <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="261" column="19" lean-forward="true" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
+            <state relative-caret-position="316">
+              <caret line="60" column="71" lean-forward="false" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="71" />
               <folding>
                 <element signature="n#!!block;n#readCookie#0" expanded="false" />
-                <element signature="n#!!block;n#updateClientList#0" expanded="false" />
+                <element signature="n#!!block;n#startVideo#0" expanded="false" />
+                <element signature="n#!!block;n#stopVideo#0" expanded="false" />
+                <element signature="n#!!block;n#stopLocalStream#0" expanded="false" />
                 <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
                 <element signature="n#!!block;n#playVideo#0" expanded="false" />
                 <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
+                <element signature="n#!!block;n#sendSdp#0" expanded="false" />
                 <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-                <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-                <marker date="1506178217095" expanded="true" signature="4458:4516" ph="..." />
+                <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+                <element signature="n#!!block;n#makeOffer#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/database.js">
+      <file leaf-file-name="passport.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/passport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+            <state relative-caret-position="-366">
+              <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+              <folding>
+                <element signature="e#548#624#0" expanded="false" />
+                <element signature="e#2783#2859#0" expanded="false" />
+                <element signature="e#3230#3514#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_server/controllers/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="40" column="15" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="40" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passport.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/passport.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_server/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="48" />
-              <folding>
-                <element signature="e#918#994#0" expanded="false" />
-                <element signature="e#1366#1650#0" expanded="false" />
-                <element signature="e#1697#3139#0" expanded="false" />
-                <element signature="e#3148#3224#0" expanded="false" />
-                <element signature="e#3595#3879#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,38 +157,8 @@
       <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="35" column="131" lean-forward="false" selection-start-line="35" selection-start-column="131" selection-end-line="35" selection-end-column="131" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="605" column="16" lean-forward="false" selection-start-line="605" selection-start-column="16" selection-end-line="605" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/login.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signup.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/signup.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            <state relative-caret-position="593">
+              <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -144,36 +168,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#7386D5</find>
-      <find>#sidebar</find>
-      <find>color: #FFF</find>
-      <find>.contact-list_contact_link</find>
-      <find>background-size: contain;</find>
-      <find>contact-list-contact</find>
-      <find>.navbar</find>
-      <find>#video-container #call_options</find>
-      <find>#video-container</find>
-      <find>textForSendSdp</find>
-      <find>toID</find>
-      <find>remoteVideo</find>
-      <find>startVideo</find>
-      <find>remoteVideoGlobal</find>
-      <find>volum</find>
-      <find>added</find>
-      <find>leave_room</find>
-      <find>.contact-list_contact_button-audio</find>
-      <find>onaddstrea</find>
-      <find>passpo</find>
-      <find>chat-app__exit</find>
-      <find>cooki</find>
       <find>userID</find>
       <find>makeAnswer</find>
-      <find>setOffer</find>
       <find>Logout</find>
       <find>leave_call</find>
-      <find>leaveCall</find>
       <find>remoteStream</find>
       <find>prepareNewConnection</find>
+      <find>update_clients_status</find>
+      <find>updateClientList</find>
+      <find>localVideo</find>
+      <find>onIceCandidateHandler</find>
+      <find>startVideo</find>
+      <find>setRemote</find>
+      <find>setLocal</find>
+      <find>remotevideo</find>
+      <find>onaddstream</find>
+      <find>prepareCall</find>
+      <find>---sending ICE candidate ---</find>
+      <find>addIce</find>
+      <find>calleeID</find>
+      <find>addIceCandidate</find>
+      <find>onice</find>
+      <find>setOffer</find>
+      <find>setremote</find>
+      <find>setRemoteDescription</find>
+      <find>answer_call</find>
+      <find>leaveCall</find>
+      <find>username</find>
+      <find>sendMessage</find>
+      <find>createAndSendAnswer</find>
+      <find>function (error) { console.log(error);}</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,20 +212,22 @@
         <option value="$PROJECT_DIR$/views/signaling.pug" />
         <option value="$PROJECT_DIR$/views/dashboard.pug" />
         <option value="$PROJECT_DIR$/public/javascripts/signaling.js" />
-        <option value="$PROJECT_DIR$/views/includes/scripts.pug" />
         <option value="$PROJECT_DIR$/views/main_layout.pug" />
         <option value="$PROJECT_DIR$/views/login.pug" />
         <option value="$PROJECT_DIR$/views/signup.pug" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app_server/models/user.js" />
         <option value="$PROJECT_DIR$/app_server/controllers/index.js" />
-        <option value="$PROJECT_DIR$/app_server/routes/index.js" />
-        <option value="$PROJECT_DIR$/config/passport.js" />
-        <option value="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
+        <option value="$PROJECT_DIR$/config/database.js" />
+        <option value="$PROJECT_DIR$/config/passport.js" />
+        <option value="$PROJECT_DIR$/app_server/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/cutomOther.js" />
         <option value="$PROJECT_DIR$/views/index.pug" />
         <option value="$PROJECT_DIR$/public/javascripts/custom.js" />
-        <option value="$PROJECT_DIR$/config/database.js" />
+        <option value="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
+        <option value="$PROJECT_DIR$/views/includes/scripts.pug" />
+        <option value="$PROJECT_DIR$/public/javascripts/customOther.js" />
       </list>
     </option>
   </component>
@@ -262,6 +288,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,6 +312,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webrtc_samples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webrtc_samples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -423,14 +468,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../helis_webrtc" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/WebRTC-master/SimpleVideoChat" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -523,12 +567,14 @@
       <workItem from="1505813125620" duration="14625000" />
       <workItem from="1505891754340" duration="12174000" />
       <workItem from="1505979544676" duration="22117000" />
-      <workItem from="1506152604649" duration="19904000" />
+      <workItem from="1506152604649" duration="20581000" />
+      <workItem from="1506180935273" duration="80000" />
+      <workItem from="1506323242547" duration="15390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68820000" />
+    <option name="totallyTimeSpent" value="84967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1616" height="1176" extended-state="6" />
@@ -561,53 +607,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="67" lean-forward="false" selection-start-line="121" selection-start-column="67" selection-end-line="121" selection-end-column="67" />
-          <folding>
-            <element signature="n#!!block;n#readCookie#0" expanded="false" />
-            <element signature="n#!!block;n#updateClientList#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
-            <element signature="n#!!block;n#playVideo#0" expanded="false" />
-            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
-            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <marker date="1506178217095" expanded="true" signature="4458:4516" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2346">
           <caret line="380" column="30" lean-forward="true" selection-start-line="379" selection-start-column="8" selection-end-line="380" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!block;n#updateClientList#0" expanded="false" />
-            <element signature="n#!!block;n#setCalleeID#0" expanded="false" />
-            <element signature="n#!!block;n#startVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopLocalStream#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
-            <element signature="n#!!block;n#playVideo#0" expanded="false" />
-            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
-            <element signature="n#!!block;n#onSdpText#0" expanded="false" />
-            <element signature="n#!!block;n#sendSdp#0" expanded="false" />
-            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#prepareNewConnection#0" expanded="false" />
-            <element signature="n#!!block;n#makeOffer#0" expanded="false" />
-            <element signature="n#!!block;n#setOffer#0" expanded="false" />
-            <element signature="n#!!block;n#makeAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#addIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#connect#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,8 +640,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1311#1464#0" expanded="false" />
-            <element signature="e#1563#1774#0" expanded="false" />
+            <element signature="e#1458#1611#0" expanded="false" />
+            <element signature="e#1710#1921#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -642,27 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2108">
           <caret line="160" column="4" lean-forward="false" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#updateClientList#0" expanded="false" />
-            <element signature="n#!!block;n#setCalleeID#0" expanded="false" />
-            <element signature="n#!!block;n#startVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopLocalStream#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
-            <element signature="n#!!block;n#playVideo#0" expanded="false" />
-            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
-            <element signature="n#!!block;n#onSdpText#0" expanded="false" />
-            <element signature="n#!!block;n#sendSdp#0" expanded="false" />
-            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#prepareNewConnection#0" expanded="false" />
-            <element signature="n#!!block;n#makeOffer#0" expanded="false" />
-            <element signature="n#!!block;n#setOffer#0" expanded="false" />
-            <element signature="n#!!block;n#makeAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#addIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#connect#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -670,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="106" lean-forward="false" selection-start-line="8" selection-start-column="106" selection-end-line="8" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,27 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6698">
           <caret line="394" column="15" lean-forward="true" selection-start-line="394" selection-start-column="15" selection-end-line="394" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!block;n#updateClientList#0" expanded="false" />
-            <element signature="n#!!block;n#setCalleeID#0" expanded="false" />
-            <element signature="n#!!block;n#startVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopLocalStream#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
-            <element signature="n#!!block;n#playVideo#0" expanded="false" />
-            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
-            <element signature="n#!!block;n#onSdpText#0" expanded="false" />
-            <element signature="n#!!block;n#sendSdp#0" expanded="false" />
-            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#prepareNewConnection#0" expanded="false" />
-            <element signature="n#!!block;n#makeOffer#0" expanded="false" />
-            <element signature="n#!!block;n#setOffer#0" expanded="false" />
-            <element signature="n#!!block;n#makeAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#addIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#connect#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,7 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,7 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,7 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="46" lean-forward="false" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -825,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="40" lean-forward="false" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,79 +817,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="61" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="15" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/signaling.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="62" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/includes/scripts.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="37" lean-forward="true" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/main_layout.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dashboard.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="56" lean-forward="false" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/dashboard.pug" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="380" column="30" lean-forward="false" selection-start-line="379" selection-start-column="8" selection-end-line="380" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!block;n#updateClientList#0" expanded="false" />
-            <element signature="n#!!block;n#setCalleeID#0" expanded="false" />
-            <element signature="n#!!block;n#startVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopVideo#0" expanded="false" />
-            <element signature="n#!!block;n#stopLocalStream#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
-            <element signature="n#!!block;n#playVideo#0" expanded="false" />
-            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
-            <element signature="n#!!block;n#onSdpText#0" expanded="false" />
-            <element signature="n#!!block;n#sendSdp#0" expanded="false" />
-            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#prepareNewConnection#0" expanded="false" />
-            <element signature="n#!!block;n#makeOffer#0" expanded="false" />
-            <element signature="n#!!block;n#setOffer#0" expanded="false" />
-            <element signature="n#!!block;n#makeAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#addIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#connect#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -965,9 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -975,15 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_server/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -991,29 +866,100 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_server/controllers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="40" column="15" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="40" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
+        <state relative-caret-position="10285">
           <caret line="605" column="16" lean-forward="false" selection-start-line="605" selection-start-column="16" selection-end-line="605" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="75" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-366">
+          <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding>
+            <element signature="e#548#624#0" expanded="false" />
+            <element signature="e#2783#2859#0" expanded="false" />
+            <element signature="e#3230#3514#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_server/controllers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="15" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="40" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_server/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="61" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="15" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="60" column="71" lean-forward="false" selection-start-line="60" selection-start-column="60" selection-end-line="60" selection-end-column="71" />
+          <folding>
+            <element signature="n#!!block;n#readCookie#0" expanded="false" />
+            <element signature="n#!!block;n#startVideo#0" expanded="false" />
+            <element signature="n#!!block;n#stopVideo#0" expanded="false" />
+            <element signature="n#!!block;n#stopLocalStream#0" expanded="false" />
+            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
+            <element signature="n#!!block;n#playVideo#0" expanded="false" />
+            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
+            <element signature="n#!!block;n#sendSdp#0" expanded="false" />
+            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
+            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+            <element signature="n#!!block;n#makeOffer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="367" column="9" lean-forward="false" selection-start-line="367" selection-start-column="9" selection-end-line="367" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="59">
           <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
           <folding />
         </state>
@@ -1021,58 +967,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app_server/utilities/signalingServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+        <state relative-caret-position="340">
+          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
-            <element signature="e#1311#1464#0" expanded="false" />
-            <element signature="e#1563#1774#0" expanded="false" />
+            <element signature="e#1458#1611#0" expanded="false" />
+            <element signature="e#1710#1921#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.pug">
+    <entry file="file://$PROJECT_DIR$/views/main_layout.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="35" column="131" lean-forward="false" selection-start-line="35" selection-start-column="131" selection-end-line="35" selection-end-column="131" />
+        <state relative-caret-position="289">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="261" column="19" lean-forward="true" selection-start-line="261" selection-start-column="19" selection-end-line="261" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!block;n#readCookie#0" expanded="false" />
-            <element signature="n#!!block;n#updateClientList#0" expanded="false" />
-            <element signature="n#!!block;n#getDeviceStream#0" expanded="false" />
-            <element signature="n#!!block;n#playVideo#0" expanded="false" />
-            <element signature="n#!!block;n#pauseVideo#0" expanded="false" />
-            <element signature="n#!!block;n#sendIceCandidate#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <marker date="1506178217095" expanded="true" signature="4458:4516" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.js">
+    <entry file="file://$PROJECT_DIR$/views/includes/scripts.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/passport.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="48" />
+        <state relative-caret-position="487">
+          <caret line="287" column="28" lean-forward="false" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
           <folding>
-            <element signature="e#918#994#0" expanded="false" />
-            <element signature="e#1366#1650#0" expanded="false" />
-            <element signature="e#1697#3139#0" expanded="false" />
-            <element signature="e#3148#3224#0" expanded="false" />
-            <element signature="e#3595#3879#0" expanded="false" />
+            <element signature="e#1633#1702#0" expanded="false" />
+            <element signature="e#1760#1893#0" expanded="false" />
+            <element signature="e#3211#3257#0" expanded="false" />
+            <element signature="e#3339#3385#0" expanded="false" />
+            <element signature="n#!!block;n#readCookie#0" expanded="false" />
+            <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
+            <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
+            <element signature="n#!!block;n#prepareCall#0" expanded="false" />
+            <element signature="n#!!block;n#initiateCall#0" expanded="false" />
+            <element signature="n#!!block;n#answerCall#0" expanded="false" />
+            <element signature="n#!!block;n#createAndSendOffer#0" expanded="false" />
+            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
+            <element signature="n#!!block;n#onIceCandidateHandler#0" expanded="false" />
+            <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
+            <element signature="n#!!block;n#addICECandidate#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -8,6 +8,8 @@ var mainRouter = function(passport) {
     router.get('/login', indexCtrl.login);
     router.post('/login', function(req, res, next) {
         passport.authenticate('local-login', function(err, user, info) {
+            if(!user)
+                res.redirect('/login');
             req.logIn(user, function(err) {
                if(err) return next(err);
                console.log(user.local.email);

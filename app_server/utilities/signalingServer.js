@@ -6,17 +6,19 @@ module.exports = function(server) {
         // ---- Add socket to clients Array when a new user joins; instruct other peers to update the list ----
         socket.on('joined', function(data) {
             data.socketID = socket.id;
+            data.status = 'online';
             clients.push(data);
 
             //io.emit('update_clients', clients);
-            io.emit('update_clients_status', data.userID);
+            io.emit('update_clients_status', data);
         });
 
-        // ---- send MSG to specific socket ----
+        // ---- send MSG to specific socket ---- //
         socket.on('send_message', function(data) {
             let msg = data.message,
                 sendTo = data.to,
                 from = data.from;
+            console.log(msg);
 
             socket.broadcast.to(findSocketByClientID(sendTo)).emit('message', JSON.stringify({
                 msg: msg,
@@ -26,9 +28,11 @@ module.exports = function(server) {
 
         // ---- Remove clients from Array when disconnected ----
         socket.on('disconnect', function() {
+            console.log('disconnected');
             var index = findSocketIndex(socket.id);
             if(index) {
-                io.emit('update_clients_status', clients[index].userID);
+                clients[index].status = 'offline';
+                io.emit('update_clients_status', clients[index]);
                 clients.splice(index, 1);
             }
         })
