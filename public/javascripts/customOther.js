@@ -14,10 +14,9 @@ let pc_config = {"iceServers":[
 ]};
 
 /** browser dependent definition are aligned to one and the same standard name **/
-navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia;
-window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
-window.RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || window.webkitRTCIceCandidate;
-window.RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription || window.webkitRTCSessionDescription;
+navigator.getUserMedia  = navigator.getUserMedia    || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+RTCSessionDescription = window.RTCSessionDescription || window.webkitRTCSessionDescription || window.mozRTCSessionDescription;
 
 $(document).ready(function () {
     guiComponenets = {
@@ -69,7 +68,7 @@ $(document).ready(function () {
         } else if(content.type === 'candidate') {
             // --- got ICE candidate ---
             console.log('Received ICE candidate ...');
-            addICECandidate(new RTCIceCandidate(content.ice));
+            addICECandidate(content.ice);
         } else if(content.type === 'close_call') {
             endCall();
         }
@@ -145,7 +144,6 @@ function prepareCall() {
 
 // ---- run start(true) to initiate a call ---- //
 function initiateCall(calleeUsername) {
-    prepareCall();
     // get the local stream, show it in the local video element and send it
     navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
         localStream = stream;
@@ -157,6 +155,8 @@ function initiateCall(calleeUsername) {
         guiComponenets.videoCallContainer.find('#call_from').html('Call To: ' + calleeUsername);
         guiComponenets.videoCallContainer.show();
 
+        prepareCall();
+
         peerConnection.addStream(localStream);
         createAndSendOffer();
     }, function(error) { console.log(error);});
@@ -164,23 +164,43 @@ function initiateCall(calleeUsername) {
 
 // ---- answer incoming call ---- //
 function answerCall(caller, offerSessionDescription) {
-    prepareCall();
     // get the local stream, show it in the local video element and send it
     navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
         peerID = caller.userID;
         localStream = stream;
         guiComponenets.localVideo.src = URL.createObjectURL(localStream);
+
+        prepareCall();
+
         peerConnection.addStream(localStream);
 
-        peerConnection.setRemoteDescription(new RTCSessionDescription(offerSessionDescription)).then(function() {
-            createAndSendAnswer(caller);
-        });
+        peerConnection.setRemoteDescription(offerSessionDescription)
+            .then(function() {
+                createAndSendAnswer(caller);
+            });
     }, function(error) { console.log(error);});
 };
 
 // ---- create and send call request to callee ---- //
 function createAndSendOffer() {
-    peerConnection.createOffer(
+    peerConnection.createOffer()
+        .then(function(offer) {
+            return peerConnection.setLocalDescription(offer)
+        })
+        .then(function() {
+            console.log('---sending sdp ---');
+            console.log(peerConnection.localDescription);
+            let message = JSON.stringify(peerConnection.localDescription);
+            sendMessage({
+                message: message,
+                from: user,
+                to: peerID
+            });
+        })
+        .catch(function(err) {
+            console.error(err);
+        });
+    /*peerConnection.createOffer(
         function (offer) {
             var off = new RTCSessionDescription(offer);
             peerConnection.setLocalDescription(new RTCSessionDescription(off),
@@ -198,13 +218,28 @@ function createAndSendOffer() {
             );
         },
         function (error) { console.warn(error);}
-    );
+    );*/
 };
 
 // ---- create and answer reqeust to caller ---- //
 function createAndSendAnswer(caller) {
     console.log('---- setting answer ----')
-    peerConnection.createAnswer(
+    peerConnection.createAnswer()
+        .then(function(answer) {
+            return peerConnection.setLocalDescription(answer);
+        })
+        .then(function() {
+            let message = JSON.stringify(peerConnection.localDescription);
+            sendMessage({
+                message: message,
+                from: user,
+                to: caller.userID
+            });
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+    /*peerConnection.createAnswer(
         function (answer) {
             var ans = new RTCSessionDescription(answer);
             peerConnection.setLocalDescription(ans, function() {
@@ -219,14 +254,18 @@ function createAndSendAnswer(caller) {
             );
         },
         function (error) {console.warn(error);}
-    );
+    );*/
 };
 
 // ---- set answer received from callee ---- //
 function setAnswer(answerSessionDescription) {
-    peerConnection.setRemoteDescription(answerSessionDescription).then(function() {
-        console.log('Set RemoteDescription of Callee');
-    });
+    peerConnection.setRemoteDescription(answerSessionDescription)
+        .then(function() {
+            console.log('Set RemoteDescription of Callee');
+        })
+        .catch(function(err) {
+            console.error(err);
+        });
 }
 
 // ---- send ICE candidate to the other peer ---- //
