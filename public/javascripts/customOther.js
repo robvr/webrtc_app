@@ -1,7 +1,7 @@
 // ---- User parameters ----
 let user, peerID = null;
 let guiComponenets = {};
-let socket;
+let socket, hasAddTrack = false;
 
 let localStream = null,
     remoteStream = null;
@@ -10,8 +10,14 @@ let peerConnection = null;
 let pc_config = {"iceServers":[
     {
         'url': 'stun:stun.l.google.com:19302'
-    }
-]};
+    }/*,
+    {
+        'url': 'turn:192.158.29.39:3478?transport=udp',
+        'credential': 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+        'username': '28224511:1379330808'
+    }*/
+]},
+    mediaConstraints = { "audio": true, "video": true };
 
 /** browser dependent definition are aligned to one and the same standard name **/
 navigator.getUserMedia  = navigator.getUserMedia    || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -58,7 +64,7 @@ $(document).ready(function () {
         if(content.type === 'offer') {
             console.log('Received offer ...');
             prepareAnswerGUI(message.from);
-            guiComponenets.answerCall.on('click', function() {
+            guiComponenets.answerCall.off().on('click', function() {
                 answerCall(message.from, content);
                 afterAnswerGUI();
             });
@@ -70,7 +76,7 @@ $(document).ready(function () {
             console.log('Received ICE candidate ...');
             addICECandidate(content.ice);
         } else if(content.type === 'close_call') {
-            endCall();
+            closeVideoCall();
         }
     });
 
@@ -83,7 +89,7 @@ $(document).ready(function () {
             from: user,
             to: peerID
         });
-        endCall();
+        closeVideoCall();
     });
 
     guiComponenets.contactList.on('click', guiComponenets.chatBtn, function() {
@@ -100,7 +106,7 @@ $(document).ready(function () {
     });
 });
 
-// ---- Cookie Helper ---- //
+// ---- General Helpers ---- //
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -110,6 +116,20 @@ function readCookie(name) {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
     }
     return null;
+}
+
+function log(text) {
+    var time = new Date();
+    console.log("[" + time.toLocaleTimeString() + "] " + text);
+}
+
+function log_error(text) {
+    var time = new Date();
+    console.error("[" + time.toLocaleTimeString() + "] " + text);
+}
+
+function reportError(errMessage) {
+    log_error("Error " + errMessage.name + ": " + errMessage.message);
 }
 
 // ---- GUI helpers ---- //
@@ -140,12 +160,65 @@ function prepareCall() {
     peerConnection.onaddstream = onAddStreamHandler;
     // send any ice candidates to the other peer
     peerConnection.onicecandidate = onIceCandidateHandler;
-};
+}
+
+function createPeerConnection() {
+    log("Setting up a connection...");
+    peerConnection = new RTCPeerConnection(pc_config);
+    hasAddTrack = (peerConnection.addTrack !== undefined);
+
+    // Set up event handlers for the ICE negotiation process.
+    peerConnection.onicecandidate = handleICECandidateEvent;
+    peerConnection.onnremovestream = handleRemoveStreamEvent;
+    peerConnection.oniceconnectionstatechange = handleICEConnectionStateChangeEvent;
+    peerConnection.onicegatheringstatechange = handleICEGatheringStateChangeEvent;
+    peerConnection.onsignalingstatechange = handleSignalingStateChangeEvent;
+    peerConnection.onnegotiationneeded = handleNegotiationNeededEvent;
+
+    // Because the deprecation of addStream() and the addstream event is recent,
+    // we need to use those if addTrack() and track aren't available.
+
+    if (hasAddTrack) {
+        peerConnection.ontrack = handleTrackEvent;
+    } else {
+        peerConnection.onaddstream = handleAddStreamEvent;
+    }
+}
 
 // ---- run start(true) to initiate a call ---- //
 function initiateCall(calleeUsername) {
+    log("Starting to prepare an invitation");
+    if(peerConnection) {
+        alert('You can\'t start a call because you already have one open!');
+    } else {
+        log('Setting up connection');
+        createPeerConnection();
+
+        log("Requesting webcam access...");
+        navigator.mediaDevices.getUserMedia(mediaConstraints)
+        .then(function(stream) {
+            localStream = stream;
+            log("-- Local video stream obtained");
+            // ---- Prepare GUI ---- //
+            guiComponenets.localVideo.src = URL.createObjectURL(localStream);
+
+            guiComponenets.videoCallContainer.find('#answer_call').hide();
+            guiComponenets.videoCallContainer.find('#leave_call').show();
+            guiComponenets.videoCallContainer.find('#call_from').html('Call To: ' + calleeUsername);
+            guiComponenets.videoCallContainer.show();
+
+            if(hasAddTrack) {
+                log("-- Adding tracks to the RTCPeerConnection");
+                localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
+            } else {
+                log("-- Adding stream to the RTCPeerConnection");
+                peerConnection.addStream(localStream);
+            }
+        })
+        .catch(handleGetUserMediaError);
+    }
     // get the local stream, show it in the local video element and send it
-    navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
+    /*navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
         localStream = stream;
         guiComponenets.localVideo.src = URL.createObjectURL(localStream);
 
@@ -159,18 +232,60 @@ function initiateCall(calleeUsername) {
 
         peerConnection.addStream(localStream);
         createAndSendOffer();
-    }, function(error) { console.log(error);});
+    }, function(error) { console.log(error);});*/
 };
 
 // ---- answer incoming call ---- //
 function answerCall(caller, offerSessionDescription) {
-    // get the local stream, show it in the local video element and send it
+    // Call createPeerConnection() to create the RTCPeerConnection.
+    log("Starting to accept invitation from " + caller.email);
+    createPeerConnection();
+
+    var desc = new RTCSessionDescription(offerSessionDescription);
+    
+    peerConnection.setRemoteDescription(desc)
+    .then(function () {
+        log("Setting up the local media stream...");
+        return navigator.mediaDevices.getUserMedia(mediaConstraints);
+    })
+    .then(function (stream) {
+        log("-- Local video stream obtained");
+        localStream = stream;
+
+        guiComponenets.localVideo.src = URL.createObjectURL(localStream);
+
+        if (hasAddTrack) {
+            log("-- Adding tracks to the RTCPeerConnection");
+            localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream)
+            );
+        } else {
+            log("-- Adding stream to the RTCPeerConnection");
+            peerConnection.addStream(localStream);
+        }
+    })
+    .then(function () {
+        log("------> Creating answer");
+        return peerConnection.createAnswer();
+    })
+    .then(function(answer) {
+        log("------> Setting local description after creating answer");
+        return peerConnection.setLocalDescription(answer);
+    })
+    .then(function () {
+        let message = JSON.stringify(peerConnection.localDescription);
+        sendMessage({
+            message: message,
+            from: user,
+            to: caller.userID
+        });
+    })
+    .catch(handleGetUserMediaError);
+
+    /*prepareCall();
     navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
         peerID = caller.userID;
         localStream = stream;
         guiComponenets.localVideo.src = URL.createObjectURL(localStream);
-
-        prepareCall();
 
         peerConnection.addStream(localStream);
 
@@ -178,7 +293,7 @@ function answerCall(caller, offerSessionDescription) {
             .then(function() {
                 createAndSendAnswer(caller);
             });
-    }, function(error) { console.log(error);});
+    }, function(error) { console.log(error);});*/
 };
 
 // ---- create and send call request to callee ---- //
@@ -200,25 +315,6 @@ function createAndSendOffer() {
         .catch(function(err) {
             console.error(err);
         });
-    /*peerConnection.createOffer(
-        function (offer) {
-            var off = new RTCSessionDescription(offer);
-            peerConnection.setLocalDescription(new RTCSessionDescription(off),
-                function() {
-                    console.log('---sending sdp ---');
-                    console.log(off);
-                    let message = JSON.stringify(off);
-                    sendMessage({
-                        message: message,
-                        from: user,
-                        to: peerID
-                    });
-                },
-                function(error) { console.warn(error);}
-            );
-        },
-        function (error) { console.warn(error);}
-    );*/
 };
 
 // ---- create and answer reqeust to caller ---- //
@@ -239,22 +335,6 @@ function createAndSendAnswer(caller) {
         .catch(function(err) {
             console.log(err);
         });
-    /*peerConnection.createAnswer(
-        function (answer) {
-            var ans = new RTCSessionDescription(answer);
-            peerConnection.setLocalDescription(ans, function() {
-                    let message = JSON.stringify(ans);
-                    sendMessage({
-                        message: message,
-                        from: user,
-                        to: caller.userID
-                    });
-                },
-                function (error) { console.warn(error);}
-            );
-        },
-        function (error) {console.warn(error);}
-    );*/
 };
 
 // ---- set answer received from callee ---- //
@@ -305,30 +385,166 @@ function addICECandidate(candidate) {
         });
 }
 
-// ---- end call handler ---- //
-function endCall() {
-    if(peerConnection) {
+// ---- close video call handler ---- //
+function closeVideoCall() {
+    log("Closing the call");
+
+    // Close the RTCPeerConnection
+    if (peerConnection) {
+        log("--> Closing the peer connection");
+
+        // Disconnect all our event listeners; we don't want stray events
+        // to interfere with the hangup while it's ongoing.
+        peerConnection.onaddstream = null;  // For older implementations
+        peerConnection.ontrack = null;      // For newer ones
+        peerConnection.onremovestream = null;
+        peerConnection.onnicecandidate = null;
+        peerConnection.oniceconnectionstatechange = null;
+        peerConnection.onsignalingstatechange = null;
+        peerConnection.onicegatheringstatechange = null;
+        peerConnection.onnotificationneeded = null;
+
+        // Stop the videos
+        /*if (guiComponenets.remoteVideo.srcObject) {
+            guiComponenets.remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+        }
+
+        if (guiComponenets.localVideo.srcObject) {
+            guiComponenets.localVideo.srcObject.getTracks().forEach(track => track.stop());
+        }
+
+        console.log('removing srcs');
+        guiComponenets.remoteVideo.src = null;
+        guiComponenets.localVideo.src = null;
+
+        // Close the peer connection
         peerConnection.close();
         peerConnection = null;
-    }
 
-    if (localStream) {
-        localStream.getTracks().forEach(function (track) {
-            track.stop();
-        });
+        // Free streams
         localStream = null;
-        guiComponenets.localVideo.src = "";
+        remoteStream = null;*/
+
+        console.log('removing srcs');
+        guiComponenets.remoteVideo.src = '';
+        guiComponenets.localVideo.src = '';
+
+        if (guiComponenets.remoteVideo.srcObject) {
+            guiComponenets.remoteVideo.srcObject.getTracks().forEach(track => track.stop());
+        }
+
+        if (guiComponenets.localVideo.srcObject) {
+            guiComponenets.localVideo.srcObject.getTracks().forEach(track => track.stop());
+        }
+
+        // Close the peer connection
+        peerConnection.close();
+        peerConnection = null;
+
+        // Free streams
+        localStream = null;
+        remoteStream = null;
     }
 
-    if(remoteStream) {
-        remoteStream.getTracks().forEach(function (track) {
-            track.stop();
-        });
-        remoteStream = null;
-        guiComponenets.remoteVideo.src = "";
-    }
     if(peerID) peerID = null;
 
     // ---- gui modifications ----
     guiComponenets.videoCallContainer.hide();
-};
+}
+
+// ---- Singaling Handlers ---- //
+function handleICECandidateEvent(event) {
+    if (event.candidate) {
+        log("Outgoing ICE candidate: " + event.candidate);
+
+        let obj = { type: 'candidate', ice: event.candidate };
+        let message = JSON.stringify(obj);
+
+        sendMessage({
+            message: message,
+            from: user.userID,
+            to: peerID
+        });
+    }
+}
+
+function handleRemoveStreamEvent() {
+    log('**** Stream Removed');
+    closeVideoCall();
+}
+
+function handleICEConnectionStateChangeEvent(evt) {
+    log("*** ICE connection state changed to " + peerConnection.iceConnectionState);
+
+    switch(peerConnection.iceConnectionState) {
+        case "closed":
+        case "failed":
+        case "disconnected":
+            closeVideoCall();
+            break;
+    }
+}
+
+function handleICEGatheringStateChangeEvent(evt) {
+    log("*** ICE gathering state changed to: " + peerConnection.iceGatheringState);
+}
+
+function handleSignalingStateChangeEvent(evt) {
+    log("*** WebRTC signaling state changed to: " + peerConnection.signalingState);
+    switch(peerConnection.signalingState) {
+        case "closed":
+            closeVideoCall();
+            break;
+    }
+}
+
+function handleNegotiationNeededEvent() {
+    log("*** Negotiation needed");
+
+    log("---> Creating offer");
+    peerConnection.createOffer().then(function(offer) {
+        log("---> Creating new description object to send to remote peer");
+        return peerConnection.setLocalDescription(offer);
+    })
+    .then(function() {
+        log("---> Sending offer to remote peer");
+        let message = JSON.stringify(peerConnection.localDescription);
+        sendMessage({
+            message: message,
+            from: user,
+            to: peerID
+        });
+    })
+    .catch(reportError);
+}
+
+function handleTrackEvent(event) {
+    log("*** Track event");
+    guiComponenets.remoteVideo.src = URL.createObjectURL(event.streams[0]);
+}
+
+function handleAddStreamEvent(event) {
+    log("*** Stream added");
+    console.log(event);
+    remoteStream = event.stream;
+    guiComponenets.remoteVideo.src = URL.createObjectURL(event.stream);
+}
+
+function handleGetUserMediaError(e) {
+    log(e);
+    switch(e.name) {
+        case "NotFoundError":
+            alert("Unable to open your call because no camera and/or microphone were found.");
+            break;
+        case "SecurityError":
+        case "PermissionDeniedError":
+            // Do nothing; this is the same as the user canceling the call.
+            break;
+        default:
+            console.log("Error opening your camera and/or microphone: " + e.message);
+            break;
+    }
+
+    // Make sure we shut down our end of the RTCPeerConnection so we're ready to try again.
+    closeVideoCall();
+}

@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6ff446b6-4c34-48f7-87cd-dc0069dd23ea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.js" afterPath="$PROJECT_DIR$/config/database.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" afterPath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/customOther.js" afterPath="$PROJECT_DIR$/public/javascripts/customOther.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.pug" afterPath="$PROJECT_DIR$/views/index.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,29 +28,63 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
+            <state relative-caret-position="238">
               <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customOther.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="signalingServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_server/utilities/signalingServer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding>
+                <element signature="e#1492#1645#0" expanded="false" />
+                <element signature="e#1744#1955#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customOther.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="299" column="9" lean-forward="false" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="9" />
+            <state relative-caret-position="-82">
+              <caret line="188" column="38" lean-forward="false" selection-start-line="188" selection-start-column="38" selection-end-line="188" selection-end-column="38" />
               <folding>
-                <element signature="e#1541#1610#0" expanded="false" />
-                <element signature="e#1668#1801#0" expanded="false" />
-                <element signature="e#2820#3016#0" expanded="false" />
-                <element signature="e#3098#3144#0" expanded="false" />
-                <element signature="e#3226#3272#0" expanded="false" />
+                <element signature="e#1788#1857#0" expanded="false" />
+                <element signature="e#1915#2048#0" expanded="false" />
+                <element signature="e#3080#3283#0" expanded="false" />
+                <element signature="e#3365#3411#0" expanded="false" />
+                <element signature="e#3493#3539#0" expanded="false" />
                 <element signature="n#!!block;n#readCookie#0" expanded="false" />
+                <element signature="n#!!block;n#log#0" expanded="false" />
+                <element signature="n#!!block;n#log_error#0" expanded="false" />
+                <element signature="n#!!block;n#reportError#0" expanded="false" />
+                <element signature="n#!!block;n#updateStatusOfClient#0" expanded="false" />
                 <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
                 <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
+                <element signature="n#!!block;n#prepareCall#0" expanded="false" />
+                <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+                <element signature="n#!!block;n#initiateCall#0" expanded="false" />
+                <element signature="n#!!block;n#createAndSendOffer#0" expanded="false" />
+                <element signature="n#!!block;n#createAndSendAnswer#0" expanded="false" />
+                <element signature="n#!!block;n#setAnswer#0" expanded="false" />
+                <element signature="n#!!block;n#onIceCandidateHandler#0" expanded="false" />
                 <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
-                <element signature="n#!!block;n#endCall#0" expanded="false" />
+                <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+                <element signature="n#!!block;n#addICECandidate#0" expanded="false" />
+                <element signature="n#!!block;n#handleICECandidateEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleRemoveStreamEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleICEConnectionStateChangeEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleICEGatheringStateChangeEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleSignalingStateChangeEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleNegotiationNeededEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleTrackEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleAddStreamEvent#0" expanded="false" />
+                <element signature="n#!!block;n#handleGetUserMediaError#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -60,7 +93,7 @@
       <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
+            <state relative-caret-position="3740">
               <caret line="383" column="9" lean-forward="false" selection-start-line="383" selection-start-column="9" selection-end-line="383" selection-end-column="9" />
               <folding>
                 <element signature="e#1511#1580#0" expanded="false" />
@@ -89,7 +122,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/database.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -99,23 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signalingServer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_server/utilities/signalingServer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-              <folding>
-                <element signature="e#1458#1611#0" expanded="false" />
-                <element signature="e#1710#1921#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
+            <state relative-caret-position="1139">
               <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
               <folding />
             </state>
@@ -146,14 +166,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>makeAnswer</find>
-      <find>Logout</find>
-      <find>leave_call</find>
-      <find>remoteStream</find>
-      <find>update_clients_status</find>
       <find>updateClientList</find>
       <find>localVideo</find>
-      <find>onIceCandidateHandler</find>
       <find>setRemote</find>
       <find>setLocal</find>
       <find>remotevideo</find>
@@ -170,12 +184,18 @@
       <find>answer_call</find>
       <find>leaveCall</find>
       <find>username</find>
-      <find>sendMessage</find>
       <find>createAndSendAnswer</find>
       <find>function (error) { console.log(error);}</find>
       <find>prepareNewConnection</find>
       <find>startVideo</find>
       <find>removeStra</find>
+      <find>sendMessage</find>
+      <find>onIceCandidateHandler</find>
+      <find>SRCOBJ</find>
+      <find>srcObject</find>
+      <find>.src</find>
+      <find>Stream added</find>
+      <find>stringify</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,11 +221,11 @@
         <option value="$PROJECT_DIR$/app_server/routes/index.js" />
         <option value="$PROJECT_DIR$/public/javascripts/cutomOther.js" />
         <option value="$PROJECT_DIR$/public/javascripts/custom.js" />
-        <option value="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
         <option value="$PROJECT_DIR$/views/includes/scripts.pug" />
         <option value="$PROJECT_DIR$/views/index.pug" />
-        <option value="$PROJECT_DIR$/public/javascripts/customOther.js" />
         <option value="$PROJECT_DIR$/config/database.js" />
+        <option value="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/customOther.js" />
       </list>
     </option>
   </component>
@@ -266,7 +286,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -445,6 +464,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -452,7 +472,7 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/WebRTC-master/SimpleVideoChat" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/samples-server-master/s/webrtc-from-chat" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -547,12 +567,13 @@
       <workItem from="1505979544676" duration="22117000" />
       <workItem from="1506152604649" duration="20581000" />
       <workItem from="1506180935273" duration="80000" />
-      <workItem from="1506323242547" duration="18747000" />
+      <workItem from="1506323242547" duration="21641000" />
+      <workItem from="1506409730625" duration="9162000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88324000" />
+    <option name="totallyTimeSpent" value="100380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1616" height="1176" extended-state="6" />
@@ -560,13 +581,13 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24968314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.50253487" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.50506973" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981783" sideWeight="0.49746513" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32981783" sideWeight="0.4949303" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -585,7 +606,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="27" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -618,8 +639,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1458#1611#0" expanded="false" />
-            <element signature="e#1710#1921#0" expanded="false" />
+            <element signature="e#1492#1645#0" expanded="false" />
+            <element signature="e#1744#1955#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,7 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,7 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,11 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-366">
           <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-          <folding>
-            <element signature="e#548#624#0" expanded="false" />
-            <element signature="e#2783#2859#0" expanded="false" />
-            <element signature="e#3230#3514#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -883,30 +897,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="367" column="9" lean-forward="false" selection-start-line="367" selection-start-column="9" selection-end-line="367" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
+        <state relative-caret-position="238">
           <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_server/utilities/signalingServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#1458#1611#0" expanded="false" />
-            <element signature="e#1710#1921#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -922,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,13 +924,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
+        <state relative-caret-position="1139">
           <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
           <folding />
         </state>
@@ -944,7 +937,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
+        <state relative-caret-position="3740">
           <caret line="383" column="9" lean-forward="false" selection-start-line="383" selection-start-column="9" selection-end-line="383" selection-end-column="9" />
           <folding>
             <element signature="e#1511#1580#0" expanded="false" />
@@ -972,30 +965,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="299" column="9" lean-forward="false" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="9" />
-          <folding>
-            <element signature="e#1541#1610#0" expanded="false" />
-            <element signature="e#1668#1801#0" expanded="false" />
-            <element signature="e#2820#3016#0" expanded="false" />
-            <element signature="e#3098#3144#0" expanded="false" />
-            <element signature="e#3226#3272#0" expanded="false" />
-            <element signature="n#!!block;n#readCookie#0" expanded="false" />
-            <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
-            <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
-            <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
-            <element signature="n#!!block;n#endCall#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6239">
+          <caret line="367" column="9" lean-forward="false" selection-start-line="367" selection-start-column="9" selection-end-line="367" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_server/utilities/signalingServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding>
+            <element signature="e#1492#1645#0" expanded="false" />
+            <element signature="e#1744#1955#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-82">
+          <caret line="188" column="38" lean-forward="false" selection-start-line="188" selection-start-column="38" selection-end-line="188" selection-end-column="38" />
+          <folding>
+            <element signature="e#1788#1857#0" expanded="false" />
+            <element signature="e#1915#2048#0" expanded="false" />
+            <element signature="e#3080#3283#0" expanded="false" />
+            <element signature="e#3365#3411#0" expanded="false" />
+            <element signature="e#3493#3539#0" expanded="false" />
+            <element signature="n#!!block;n#readCookie#0" expanded="false" />
+            <element signature="n#!!block;n#log#0" expanded="false" />
+            <element signature="n#!!block;n#log_error#0" expanded="false" />
+            <element signature="n#!!block;n#reportError#0" expanded="false" />
+            <element signature="n#!!block;n#updateStatusOfClient#0" expanded="false" />
+            <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
+            <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
+            <element signature="n#!!block;n#prepareCall#0" expanded="false" />
+            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+            <element signature="n#!!block;n#initiateCall#0" expanded="false" />
+            <element signature="n#!!block;n#createAndSendOffer#0" expanded="false" />
+            <element signature="n#!!block;n#createAndSendAnswer#0" expanded="false" />
+            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
+            <element signature="n#!!block;n#onIceCandidateHandler#0" expanded="false" />
+            <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
+            <element signature="n#!!block;n#sendMessage#0" expanded="false" />
+            <element signature="n#!!block;n#addICECandidate#0" expanded="false" />
+            <element signature="n#!!block;n#handleICECandidateEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleRemoveStreamEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleICEConnectionStateChangeEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleICEGatheringStateChangeEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleSignalingStateChangeEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleNegotiationNeededEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleTrackEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleAddStreamEvent#0" expanded="false" />
+            <element signature="n#!!block;n#handleGetUserMediaError#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

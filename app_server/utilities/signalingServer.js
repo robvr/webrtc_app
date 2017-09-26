@@ -15,6 +15,7 @@ module.exports = function(server) {
 
         // ---- send MSG to specific socket ---- //
         socket.on('send_message', function(data) {
+            console.log(data.toString());
             let msg = data.message,
                 sendTo = data.to,
                 from = data.from;
@@ -28,7 +29,7 @@ module.exports = function(server) {
 
         // ---- Remove clients from Array when disconnected ----
         socket.on('disconnect', function() {
-            console.log('disconnected');
+            log('disconnected');
             var index = findSocketIndex(socket.id);
             if(index) {
                 clients[index].status = 'offline';
@@ -56,5 +57,11 @@ module.exports = function(server) {
             }
         });
         return socketID;
+    }
+
+    // ---- Log Function ---- //
+    var log = function(text) {
+        var time = new Date();
+        console.log("[" + time.toLocaleTimeString() + "]" + text);
     }
 }
