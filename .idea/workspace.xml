@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6ff446b6-4c34-48f7-87cd-dc0069dd23ea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" afterPath="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/customOther.js" afterPath="$PROJECT_DIR$/public/javascripts/customOther.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/custom.css" afterPath="$PROJECT_DIR$/public/stylesheets/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.pug" afterPath="$PROJECT_DIR$/views/index.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,41 +52,60 @@
       <file leaf-file-name="customOther.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-82">
-              <caret line="188" column="38" lean-forward="false" selection-start-line="188" selection-start-column="38" selection-end-line="188" selection-end-column="38" />
+            <state relative-caret-position="231">
+              <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
               <folding>
-                <element signature="e#1788#1857#0" expanded="false" />
-                <element signature="e#1915#2048#0" expanded="false" />
-                <element signature="e#3080#3283#0" expanded="false" />
-                <element signature="e#3365#3411#0" expanded="false" />
-                <element signature="e#3493#3539#0" expanded="false" />
+                <element signature="e#1925#1994#0" expanded="false" />
+                <element signature="e#2052#2185#0" expanded="false" />
+                <element signature="e#3252#3455#0" expanded="false" />
+                <element signature="e#3515#3654#0" expanded="false" />
+                <element signature="e#3714#3852#0" expanded="false" />
+                <element signature="e#3934#3980#0" expanded="false" />
+                <element signature="e#4062#4108#0" expanded="false" />
                 <element signature="n#!!block;n#readCookie#0" expanded="false" />
                 <element signature="n#!!block;n#log#0" expanded="false" />
                 <element signature="n#!!block;n#log_error#0" expanded="false" />
                 <element signature="n#!!block;n#reportError#0" expanded="false" />
                 <element signature="n#!!block;n#updateStatusOfClient#0" expanded="false" />
-                <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
-                <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
-                <element signature="n#!!block;n#prepareCall#0" expanded="false" />
-                <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+                <element signature="e#5993#6310#0" expanded="false" />
                 <element signature="n#!!block;n#initiateCall#0" expanded="false" />
-                <element signature="n#!!block;n#createAndSendOffer#0" expanded="false" />
-                <element signature="n#!!block;n#createAndSendAnswer#0" expanded="false" />
-                <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-                <element signature="n#!!block;n#onIceCandidateHandler#0" expanded="false" />
-                <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
+                <element signature="n#!!block;n#answerCall#0" expanded="false" />
                 <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-                <element signature="n#!!block;n#addICECandidate#0" expanded="false" />
-                <element signature="n#!!block;n#handleICECandidateEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleRemoveStreamEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleICEConnectionStateChangeEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleICEGatheringStateChangeEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleSignalingStateChangeEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleNegotiationNeededEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleTrackEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleAddStreamEvent#0" expanded="false" />
-                <element signature="n#!!block;n#handleGetUserMediaError#0" expanded="false" />
+                <element signature="n#!!block;n#closeVideoCall#0" expanded="false" />
+                <element signature="e#11599#16401#0" expanded="false" />
+                <element signature="e#11638#12712#0" expanded="false" />
+                <element signature="e#12765#13015#0" expanded="false" />
+                <element signature="e#13058#13299#0" expanded="false" />
+                <element signature="e#13346#13711#0" expanded="false" />
+                <element signature="e#13753#13822#0" expanded="false" />
+                <element signature="e#13877#14180#0" expanded="false" />
+                <element signature="e#14233#14328#0" expanded="false" />
+                <element signature="e#14382#14619#0" expanded="false" />
+                <element signature="e#14666#15329#0" expanded="false" />
+                <element signature="e#15365#15484#0" expanded="false" />
+                <element signature="e#15524#15705#0" expanded="false" />
+                <element signature="e#15749#16399#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/index.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="582">
+              <caret line="396" column="45" lean-forward="false" selection-start-line="396" selection-start-column="45" selection-end-line="396" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,18 +145,8 @@
       <file leaf-file-name="database.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
+            <state relative-caret-position="34">
+              <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -166,16 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateClientList</find>
-      <find>localVideo</find>
-      <find>setRemote</find>
-      <find>setLocal</find>
-      <find>remotevideo</find>
-      <find>onaddstream</find>
-      <find>prepareCall</find>
-      <find>---sending ICE candidate ---</find>
-      <find>addIce</find>
-      <find>calleeID</find>
       <find>addIceCandidate</find>
       <find>onice</find>
       <find>setOffer</find>
@@ -196,6 +196,16 @@
       <find>.src</find>
       <find>Stream added</find>
       <find>stringify</find>
+      <find>#video-container #call_options .control_chat_block .control_chat_block_inner .voicebtn</find>
+      <find>createPeerConnection</find>
+      <find>setAnswer</find>
+      <find>addICECandidate</find>
+      <find>handleICECandidateEvent</find>
+      <find>handleRemoveStreamEvent</find>
+      <find>handleICEConnectionStateChangeEvent</find>
+      <find>handleGetUserMediaError</find>
+      <find>iphone_6_original.mp3</find>
+      <find>iphone_6_original.mp3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,15 +226,15 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app_server/models/user.js" />
         <option value="$PROJECT_DIR$/app_server/controllers/index.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/config/passport.js" />
         <option value="$PROJECT_DIR$/app_server/routes/index.js" />
         <option value="$PROJECT_DIR$/public/javascripts/cutomOther.js" />
         <option value="$PROJECT_DIR$/public/javascripts/custom.js" />
         <option value="$PROJECT_DIR$/views/includes/scripts.pug" />
-        <option value="$PROJECT_DIR$/views/index.pug" />
         <option value="$PROJECT_DIR$/config/database.js" />
         <option value="$PROJECT_DIR$/app_server/utilities/signalingServer.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
+        <option value="$PROJECT_DIR$/views/index.pug" />
         <option value="$PROJECT_DIR$/public/javascripts/customOther.js" />
       </list>
     </option>
@@ -343,10 +353,6 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -362,21 +368,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webrtc_samples" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webrtc_samples" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="sound" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -480,15 +476,16 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\assets\sound" />
+      <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\stylesheets\vendors\fonts" />
       <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\images" />
       <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\stylesheets" />
       <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\javascripts" />
       <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\javascripts\vendors\bootstrap" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\robertvrenozi\WebstormProjects\webrtc_samples\public\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -568,19 +565,28 @@
       <workItem from="1506152604649" duration="20581000" />
       <workItem from="1506180935273" duration="80000" />
       <workItem from="1506323242547" duration="21641000" />
-      <workItem from="1506409730625" duration="9162000" />
+      <workItem from="1506409730625" duration="14780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100380000" />
+    <option name="totallyTimeSpent" value="105998000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1616" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24968314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.50506973" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32981783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -606,26 +612,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="31" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="380" column="30" lean-forward="true" selection-start-line="379" selection-start-column="8" selection-end-line="380" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -809,13 +800,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/custom.min.js" />
-    <entry file="file://$PROJECT_DIR$/public/images/videoBtn.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/signaling.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -863,14 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10285">
-          <caret line="605" column="16" lean-forward="false" selection-start-line="605" selection-start-column="16" selection-end-line="605" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,14 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3740">
@@ -965,18 +933,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/signaling.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6239">
           <caret line="367" column="9" lean-forward="false" selection-start-line="367" selection-start-column="9" selection-end-line="367" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/videoBtn.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/videoOptionBtn.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1005" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/img.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="396" column="45" lean-forward="false" selection-start-line="396" selection-start-column="45" selection-end-line="396" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -992,42 +989,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="52" column="36" lean-forward="false" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/customOther.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-82">
-          <caret line="188" column="38" lean-forward="false" selection-start-line="188" selection-start-column="38" selection-end-line="188" selection-end-column="38" />
+        <state relative-caret-position="231">
+          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding>
-            <element signature="e#1788#1857#0" expanded="false" />
-            <element signature="e#1915#2048#0" expanded="false" />
-            <element signature="e#3080#3283#0" expanded="false" />
-            <element signature="e#3365#3411#0" expanded="false" />
-            <element signature="e#3493#3539#0" expanded="false" />
+            <element signature="e#1925#1994#0" expanded="false" />
+            <element signature="e#2052#2185#0" expanded="false" />
+            <element signature="e#3252#3455#0" expanded="false" />
+            <element signature="e#3515#3654#0" expanded="false" />
+            <element signature="e#3714#3852#0" expanded="false" />
+            <element signature="e#3934#3980#0" expanded="false" />
+            <element signature="e#4062#4108#0" expanded="false" />
             <element signature="n#!!block;n#readCookie#0" expanded="false" />
             <element signature="n#!!block;n#log#0" expanded="false" />
             <element signature="n#!!block;n#log_error#0" expanded="false" />
             <element signature="n#!!block;n#reportError#0" expanded="false" />
             <element signature="n#!!block;n#updateStatusOfClient#0" expanded="false" />
-            <element signature="n#!!block;n#prepareAnswerGUI#0" expanded="false" />
-            <element signature="n#!!block;n#afterAnswerGUI#0" expanded="false" />
-            <element signature="n#!!block;n#prepareCall#0" expanded="false" />
-            <element signature="n#!!block;n#createPeerConnection#0" expanded="false" />
+            <element signature="e#5993#6310#0" expanded="false" />
             <element signature="n#!!block;n#initiateCall#0" expanded="false" />
-            <element signature="n#!!block;n#createAndSendOffer#0" expanded="false" />
-            <element signature="n#!!block;n#createAndSendAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#setAnswer#0" expanded="false" />
-            <element signature="n#!!block;n#onIceCandidateHandler#0" expanded="false" />
-            <element signature="n#!!block;n#onAddStreamHandler#0" expanded="false" />
+            <element signature="n#!!block;n#answerCall#0" expanded="false" />
             <element signature="n#!!block;n#sendMessage#0" expanded="false" />
-            <element signature="n#!!block;n#addICECandidate#0" expanded="false" />
-            <element signature="n#!!block;n#handleICECandidateEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleRemoveStreamEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleICEConnectionStateChangeEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleICEGatheringStateChangeEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleSignalingStateChangeEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleNegotiationNeededEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleTrackEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleAddStreamEvent#0" expanded="false" />
-            <element signature="n#!!block;n#handleGetUserMediaError#0" expanded="false" />
+            <element signature="n#!!block;n#closeVideoCall#0" expanded="false" />
+            <element signature="e#11599#16401#0" expanded="false" />
+            <element signature="e#11638#12712#0" expanded="false" />
+            <element signature="e#12765#13015#0" expanded="false" />
+            <element signature="e#13058#13299#0" expanded="false" />
+            <element signature="e#13346#13711#0" expanded="false" />
+            <element signature="e#13753#13822#0" expanded="false" />
+            <element signature="e#13877#14180#0" expanded="false" />
+            <element signature="e#14233#14328#0" expanded="false" />
+            <element signature="e#14382#14619#0" expanded="false" />
+            <element signature="e#14666#15329#0" expanded="false" />
+            <element signature="e#15365#15484#0" expanded="false" />
+            <element signature="e#15524#15705#0" expanded="false" />
+            <element signature="e#15749#16399#0" expanded="false" />
           </folding>
         </state>
       </provider>

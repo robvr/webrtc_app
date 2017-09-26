@@ -381,10 +381,20 @@ ul ul a {
     background-image: url('/images/voiceBtn.svg');
 }
 
+#video-container #call_options .control_chat_block .control_chat_block_inner .voicebtn.muted {
+    background-image: url('/images/voiceMutedBtn.svg');
+}
+
 #video-container #call_options .control_chat_block .control_chat_block_inner .videobtn {
     height: 20px;
     width: 25px;
     background-image: url('/images/videoOptionBtn.svg');
+}
+
+#video-container #call_options .control_chat_block .control_chat_block_inner .videobtn.muted {
+    height: 20px;
+    width: 25px;
+    background-image: url('/images/videoMutedBtn.svg');
 }
 
 #video-container #call_options .control_chat_block .control_chat_block_inner .chat-app__exit.leave,

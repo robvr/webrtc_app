@@ -52,6 +52,9 @@ block content
         h1#call_from Robert
         video#local_video(autoplay='')
         video#remote_video(autoplay='')
+        audio#ringtone(loop)
+            source(src='/assets/sound/iphone.ogg', type='audio/ogg')
+            source(src='/assets/sound/iphone.mp3', type='audio/mpeg')
         section#call_options
             .chat-app_control_wrap
                 .control_chat_block
