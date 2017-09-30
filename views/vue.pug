@@ -1,0 +1,9 @@
+extends main_layout
+
+block content
+    #app
+        input(type='text', v-on:input='changeTitle')
+        p {{ title }}
+
+    script(src='/javascripts/vendors/vue/vue.js')
+    script(src='/javascripts/vueScript.js')

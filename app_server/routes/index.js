@@ -4,7 +4,6 @@ var router = express.Router();
 
 var mainRouter = function(passport) {
     router.get('/', isLoggedIn, indexCtrl.index);
-    router.get('/signaling', indexCtrl.signaling);
     router.get('/login', indexCtrl.login);
     router.post('/login', function(req, res, next) {
         passport.authenticate('local-login', function(err, user, info) {
@@ -24,6 +23,7 @@ var mainRouter = function(passport) {
     router.get('/signup', indexCtrl.signup);
     router.post('/signup', indexCtrl.signupPost(passport));
     router.get('/logout', indexCtrl.logout);
+    router.get('/vue', indexCtrl.vueTest);
 
     return router;
 }

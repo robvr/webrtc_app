@@ -28,6 +28,7 @@ $(document).ready(function () {
     guiComponenets = {
         localVideo: document.getElementById('local_video'),
         remoteVideo: document.getElementById('remote_video'),
+        ringElement: document.getElementById('ringtone'),
         localVideoBtn: $('#local_video_btn'),
         videoCallContainer: $('#video-container'),
         leaveCall: $('#leave_call'),
@@ -37,8 +38,7 @@ $(document).ready(function () {
         callBtn: '.contact-list_contact_button-audio',
         videoCallBtn: '.contact-list_contact_button-video',
         muteAudioBtn: $('#audio_mute'),
-        muteVideoBtn: $('#video_mute'),
-        ringElement: document.getElementById('ringtone')
+        muteVideoBtn: $('#video_mute')
     };
 
     user = JSON.parse(decodeURIComponent(readCookie('userDetails')));
@@ -54,7 +54,6 @@ $(document).ready(function () {
     });
 
     socket.on('update_clients_status', function(data) {
-        console.log('Must udpate status of: ' + data.userID);
         updateStatusOfClient(guiComponenets.contactList, data);
     })
 
@@ -143,11 +142,8 @@ function reportError(errMessage) {
 }
 
 // ---- GUI helpers ---- //
-function updateStatusOfClient(element, client) {
-    // TODO: try to select elements from element
-    var item = $('#status_' + client.userID);
-    //item.hasClass('online') ? item.removeClass('online').addClass('offline') : item.removeClass('offline').addClass('online');
-    item.removeClass('online offline').addClass(client.status);
+function updateStatusOfClient(client) {
+    guiComponenets.contactList.find('#status_' + client.userID).removeClass('online offline').addClass(client.status);
 }
 function prepareAnswerGUI (caller){
     // Prepare GUI
@@ -164,14 +160,6 @@ function afterAnswerGUI() {
 }
 
 // ---- Call Helpers ---- //
-/*function prepareCall() {
-    peerConnection = new RTCPeerConnection(pc_config);
-    // once remote stream arrives, show it in the remote video element
-    peerConnection.onaddstream = onAddStreamHandler;
-    // send any ice candidates to the other peer
-    peerConnection.onicecandidate = onIceCandidateHandler;
-}*/
-
 // ---- run start(true) to initiate a call ---- //
 function initiateCall(calleeUsername) {
     log("Starting to prepare an invitation");
@@ -251,20 +239,6 @@ function answerCall(caller, offerSessionDescription) {
         });
     })
     .catch(webRTCHanlder.handleGetUserMediaError);
-
-    /*prepareCall();
-    navigator.getUserMedia({ "audio": true, "video": true }, function (stream) {
-        peerID = caller.userID;
-        localStream = stream;
-        guiComponenets.localVideo.src = URL.createObjectURL(localStream);
-
-        peerConnection.addStream(localStream);
-
-        peerConnection.setRemoteDescription(offerSessionDescription)
-            .then(function() {
-                createAndSendAnswer(caller);
-            });
-    }, function(error) { console.log(error);});*/
 };
 
 // ---- send message to the other peer ---- //
@@ -307,14 +281,14 @@ function closeVideoCall() {
         peerConnection.close();
         peerConnection = null;
 
-        // ---- Free streams ---- //
+        // ---- Empty streams ---- //
         localStream = null;
         remoteStream = null;
     }
 
     if(peerID) peerID = null;
 
-    // ---- gui modifications ----
+    // ---- GUI modifications ----
     guiComponenets.videoCallContainer.hide();
 }
 

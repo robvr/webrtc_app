@@ -41,8 +41,8 @@ var indexCtrl = {
             });
         });
     },
-    signaling: function(req, res) {
-        res.render('signaling', { title: 'Very simple WebRTC application with a Node.js signaling server' });
+    vueTest: function (req, res) {
+        res.render('vue');
     }
 }
 
